@@ -3,8 +3,8 @@ import requests
 
 app = Flask(__name__)
 
-# Asegúrate de usar tu propia clave API
-API_KEY = "TU_API_KEY_AQUI"  # Reemplaza con tu clave real
+
+API_KEY = "TU_API_KEY_AQUI" 
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -18,13 +18,13 @@ def index():
             "apiKey": API_KEY,
             "query": query,
             "number": 10,
-            "addRecipeInformation": True  # Agrega más información como ingredientes, etc.
+            "addRecipeInformation": True  
         }
 
-        # Realiza la solicitud a Spoonacular
+    
         response = requests.get(url, params=params)
 
-        # Si la respuesta es exitosa, obtén las recetas
+    
         if response.status_code == 200:
             data = response.json()
             recetas = data.get("results", [])
